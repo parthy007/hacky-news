@@ -5,7 +5,6 @@ const authRoute = require("./routes/auth")
 const cors = require("cors");
 
 const app = express();
-
 app.options('*', (req, res) => {
     res.header('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST');
@@ -13,6 +12,7 @@ app.options('*', (req, res) => {
     res.header('Access-Control-Allow-Credentials', 'true');
     res.status(204).send();
 });
+
 
 app.use(cors({
     origin: ["https://hacky-news-sigma.vercel.app", "http://localhost:3000"],
