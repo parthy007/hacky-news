@@ -18,7 +18,7 @@ export default function Register() {
         }
     
         try {
-            const res = await axios.post("http://localhost:3001/auth/register", {
+            const res = await axios.post("https://hacky-news-server.vercel.app/auth/register", {
                 username: username,
                 email: email,
                 password: password,
