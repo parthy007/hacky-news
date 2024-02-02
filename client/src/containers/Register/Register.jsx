@@ -24,10 +24,6 @@ export default function Register() {
                 email: email,
                 password: password,
             },{
-                headers:{
-                  'Content-Type':'application/json',
-                  'Access-Control-Allow-Origin': 'https://hacky-news-sigma.vercel.app',
-                },
                 withCredentials:true
             });
           navigate("/login");
