@@ -18,17 +18,11 @@ export default function Login() {
         }
 
         try {
-            const res = await axios.post(
-                `${rootUrl}login`,
-                {
-                    email: email,
-                    password: password,
-                },
+            const res = await axios.post(`${rootUrl}login`,{email: email,password: password},
                 {
                     headers:{
-                        'Content-Type':'application/json'
-                    },
-                    withCredentials: true,
+                        'Content-Type': 'application/json',
+                    }
                 }
             );
 
