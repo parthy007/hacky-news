@@ -5,9 +5,7 @@ const jwt = require("jsonwebtoken");
 
 
 router.post("/register", async(req,res)=>{
-    if (req.method === 'OPTIONS') {
-        res.status(200).end();
-    }
+    
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -16,11 +14,6 @@ router.post("/register", async(req,res)=>{
 
     try{
         const user = await newUser.save();
-
-        res.header('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-Type');
-        res.header('Access-Control-Allow-Credentials', 'true');
         return res.status(201).json(user);
     }catch(err){
         return res.status(500).json(err);
@@ -29,9 +22,7 @@ router.post("/register", async(req,res)=>{
 
 
 router.post("/login", async(req,res)=>{
-    if (req.method === 'OPTIONS') {
-        res.status(200).end();
-    }
+    
     try{
         const user = await User.findOne({email: req.body.email});
         if(!user){
@@ -54,10 +45,6 @@ router.post("/login", async(req,res)=>{
             secure: true
         });
 
-        res.header('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-Type');
-        res.header('Access-Control-Allow-Credentials', 'true');
         return res.status(200).json({...info});
     }catch(err){
         return res.status(501).json(err);

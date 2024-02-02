@@ -13,8 +13,8 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json());
 
 app.use(cors({
-    origin: ["https://hacky-news-sigma.vercel.app","http://localhost:3000"],
-    allowedHeaders: ['Content-Type'],
+    origin: "https://hacky-news-sigma.vercel.app",
+    allowedHeaders: ['Content-Type','OPTIONS','ORIGIN'],
     credentials:true
 }));
 app.options('*', cors())
