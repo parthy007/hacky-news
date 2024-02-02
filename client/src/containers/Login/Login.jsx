@@ -18,9 +18,12 @@ export default function Login() {
         }
 
         try {
-            axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
             const res = await axios.post(`${rootUrl}login`,{email: email,password: password},
                 {
+                    headers:{
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': 'https://hacky-news-sigma.vercel.app/',
+                    },
                     withCredentials: true,
                 }
             );
