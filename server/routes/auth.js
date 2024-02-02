@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 
 
 router.post("/register", async(req,res)=>{
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+    }
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -13,7 +16,7 @@ router.post("/register", async(req,res)=>{
 
     try{
         const user = await newUser.save();
-        
+
         res.header('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -26,6 +29,9 @@ router.post("/register", async(req,res)=>{
 
 
 router.post("/login", async(req,res)=>{
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+    }
     try{
         const user = await User.findOne({email: req.body.email});
         if(!user){
