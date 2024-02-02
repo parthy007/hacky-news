@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Login.css"
 import { useNavigate } from "react-router-dom"
-import axios from "axios";
 import rootUrl from "../../baseUrl"
 
 export default function Login() {
@@ -17,14 +16,22 @@ export default function Login() {
             return;
         }
 
-        try {
-            const res = await axios.post(`${rootUrl}login`,{email: email,password: password},
-                {
-                    withCredentials: true,
-                }
-            );
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email, password: password }),
+            credentials: 'include',
+          };
 
-                localStorage.setItem("username",res.data.username)
+        try {
+            const res = await fetch(`${rootUrl}login`,requestOptions);
+            if(!res.ok){
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            const data = await res.json();
+            localStorage.setItem("username",data.username)
             navigate('/home'); // Navigate to "/home" after successful login
         } catch (error) {
             // Handle login error if needed

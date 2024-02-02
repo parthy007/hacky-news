@@ -6,12 +6,12 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(
-    cors({
-      origin: true,
-      credentials: true,
-    })
-);
+app.use(cors({
+    origin: ["https://hacky-news-sigma.vercel.app", "http://localhost:3000"],
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type', 'OPTIONS', 'ORIGIN'],
+    credentials: true
+}));
 
 dotenv.config()
 

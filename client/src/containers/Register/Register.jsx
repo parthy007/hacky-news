@@ -17,16 +17,22 @@ export default function Register() {
           setError("All fields are required.");
           return;
         }
+
+        const requestOptions = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username: username,email: email, password: password }),
+          credentials: 'include',
+        };
     
         try {
-            const res = await axios.post(`${rootUrl}register`, {
-                username: username,
-                email: email,
-                password: password,
-            },{
-                withCredentials:true
-            });
-          navigate("/login");
+            const res = await fetch(`${rootUrl}register`, requestOptions);
+            if(!res.ok){
+              throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            navigate("/login");
         } catch (error) {
           // Handle registration error if needed
           console.error("Registration failed", error);
