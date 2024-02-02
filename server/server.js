@@ -1,36 +1,40 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const authRoute = require("./routes/auth")
-const cors = require("cors")
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const authRoute = require('./routes/auth');
+const cors = require('cors');
 
 const app = express();
 
-//cors config
-app.use(cors({
-    origin: ["https://hacky-news-sigma.vercel.app", "http://localhost:3000"],
-    methods: ['POST'],
-    allowedHeaders: ['Content-Type', 'OPTIONS', 'ORIGIN'],
-    credentials: true
-}));
+// CORS configuration
+const allowedOrigins = ['https://hacky-news-sigma.vercel.app', 'http://localhost:3000'];
 
-dotenv.config()
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['OPTIONS', 'GET', 'POST'],
+    credentials: true,
+  })
+);
 
-mongoose.connect(process.env.MONGO_URL)
-.then(()=>console.log("DB is connected"))
-.catch(err=>console.log(err))
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log('DB is connected'))
+  .catch((err) => console.log(err));
 
 app.use(express.json());
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type");
-    next();
-  });
-app.use("/auth",authRoute);
+app.use('/auth', authRoute);
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT,()=>{
-    console.log(`Backend listening at ${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`Backend listening at ${PORT}`);
+});
