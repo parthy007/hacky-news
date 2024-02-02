@@ -8,7 +8,7 @@ const app = express();
 dotenv.config()
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000","https://hacky-news-sigma.vercel.app"],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'OPTIONS', 'ORIGIN'],
     credentials: true
