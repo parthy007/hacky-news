@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "./Register.css"
-import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 import rootUrl from "../../baseUrl"
 

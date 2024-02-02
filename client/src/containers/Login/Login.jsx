@@ -32,9 +32,8 @@ export default function Login() {
             }
             const data = await res.json();
             localStorage.setItem("username",data.username)
-            navigate('/home'); // Navigate to "/home" after successful login
+            navigate('/home'); 
         } catch (error) {
-            // Handle login error if needed
             console.error("Login failed", error);
             setError("Invalid credentials. Please try again.");
         }

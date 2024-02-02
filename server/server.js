@@ -6,6 +6,7 @@ const cors = require("cors");
 
 const app = express();
 
+//cors config
 app.use(cors({
     origin: ["https://hacky-news-sigma.vercel.app", "http://localhost:3000"],
     methods: ['POST'],
