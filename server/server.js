@@ -13,8 +13,9 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json());
 app.use(cors({
     origin: ["https://budssss.vercel.app","http://localhost:3000"],
-    methods: ['GET', 'POST', 'PATCH'],
-    allowedHeaders: ['Content-Type','Authorization','OPTIONS','ORIGIN'],
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type'],
+    credentials:true
 }));
 
 

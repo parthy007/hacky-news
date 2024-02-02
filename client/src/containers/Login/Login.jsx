@@ -20,6 +20,7 @@ export default function Login() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin':'https://hacky-news-sigma.vercel.app'
             },
             body: JSON.stringify({ email: email, password: password }),
             credentials: 'include',

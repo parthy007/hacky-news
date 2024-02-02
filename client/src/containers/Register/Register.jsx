@@ -21,6 +21,7 @@ export default function Register() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin':'https://hacky-news-sigma.vercel.app'
           },
           body: JSON.stringify({ username: username,email: email, password: password }),
           credentials: 'include',
