@@ -11,11 +11,11 @@ dotenv.config();
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json());
-app.options('*', cors());
+
 app.use(cors({
     origin: ["https://hacky-news-sigma.vercel.app","http://localhost:3000"],
     methods: ['POST'],
-    allowedHeaders: ['Content-Type','Access-Control-Allow-Origin','Access-Control-Allow-Credentials'],
+    allowedHeaders: ['Content-Type','ORIGIN','OPTIONS','Access-Control-Allow-Origin','Access-Control-Allow-Credentials'],
     credentials:true
 }));
 
