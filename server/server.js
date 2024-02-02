@@ -10,6 +10,7 @@ app.options('*', (req, res) => {
     res.header('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST');
     res.header('Access-Control-Allow-Headers', 'Content-Type, OPTIONS, ORIGIN');
+    res.header('Access-Control-Allow-Credentials', 'true');
     res.status(204).send();
 });
 
