@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseUrl = "https://hacky-news-server.vercel.app/"
+export const baseUrl = "https://hacker-news.firebaseio.com/v0/"
 
 export const topStories = async () => {
     const res = await axios.get(`${baseUrl}topstories.json`).then(({data})=>data)
