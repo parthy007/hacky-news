@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors({
     origin: ["https://budssss.vercel.app","http://localhost:3000"],
     methods: ['POST'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type','Access-Control-Allow-Origin'],
     credentials:true
 }));
 
