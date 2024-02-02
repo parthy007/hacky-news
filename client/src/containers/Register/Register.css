@@ -1,0 +1,73 @@
+.register-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register-wrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30vw;
+    height: 50vh;
+    border-radius: 10px;
+    justify-content: space-around;
+    padding: 5px 20px;
+}
+.register-heading{
+    text-align: center;
+    color: #ff6600;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted #ff6600;
+}
+.register-wrapper>input{
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.663);
+    border: none;
+    background-color: rgba(128, 128, 128, 0.145);
+    outline: none;
+    padding-left: 10px;
+    border-radius: 20px;
+    transition: all ease .3s;
+}
+.register-wrapper>input:focus{
+    scale: 1.03;
+}
+.register-btn{
+    width: 30%;
+    color: #ff6600;
+    background-color: white;
+    border: 1px solid #ff6600;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+.register-btn:hover{
+    color: white;
+    background-color: #ff6600;
+    scale: 1.1;
+}
+.register-login-link{
+    text-align: center;
+}
+.register-login-link{
+    color: gray;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+.register-login-link:hover{
+    color: #ff6600;
+    scale: 1.1;
+}
+.error-text{
+    color: red;
+    text-align: center;
+}

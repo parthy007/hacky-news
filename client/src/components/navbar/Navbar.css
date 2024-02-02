@@ -1,0 +1,40 @@
+.navbar{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.576);
+}
+.navbar-wrapper{
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    padding:0 20px;
+    justify-content: space-between;
+}
+.navbar-heading{
+    color: #ff6600;
+}
+.navbar-user-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar-username{
+    color: #ff6600;
+}
+.navbar-logout-btn{
+    background-color: floralwhite;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: #ff6600;
+    transition: all ease .2s;
+    cursor: pointer;
+}
+.navbar-logout-btn:hover{
+    background-color: #ff6600;
+    color: white;
+    scale: 1.03;
+}

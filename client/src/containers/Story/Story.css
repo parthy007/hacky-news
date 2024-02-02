@@ -1,0 +1,164 @@
+.story-wrapper{
+    background-color:azure;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    min-height: 120px;
+    margin: 15px 0;
+    border-radius: 10px;
+    transition: all ease .2s;
+    cursor: pointer;
+    justify-content: space-evenly;
+}
+.read{
+    background-color: rgb(210 231 223 / 76%);
+}
+.story-wrapper:hover{
+    scale: 1.05;
+}
+.story-number{
+    color: gray;
+    font-weight: bold;
+    font-size: 3vw;
+    text-align: center;
+}
+.story-info-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 7px;
+    border-left: 1px dotted gray;
+    border-right: 1px dotted gray;
+    width: 70vw;
+}
+.story-title{
+    font-weight: 700;
+    font-size: 1.5vw;
+    width: 64vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.story-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.story-by{
+    color: gray;
+    font-weight: 500;
+    width:12vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.1vw;
+}
+.story-by-name{
+    color: #ff6600;
+    font-weight: 500;
+}
+.story-time{
+    color: gray;
+    font-weight: 500;
+    width:8vw;
+    font-size: 1.1vw;
+}
+.story-link{
+    text-decoration: none;
+    color: gray;
+    font-size: 1.1vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30vw;
+    transition: all ease .2s;
+}
+.story-link:hover{
+    color: #ff6600;
+    scale: 1.03;
+}
+.story-upvotes{
+    color: green;
+    display: flex;
+    width:6vw;
+    align-items: center;
+    gap:3px;
+}
+.story-comments{
+    width:6vw;
+    display: flex;
+    align-items: center;
+    color: gray;
+    gap:3px;
+}
+.story-btn-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.story-btn-container>button{
+    background-color: transparent;
+    border: none;
+}
+.story-btn{
+    cursor: pointer;
+    font-size: 22px;
+}
+.readbtn{
+    color: gray;
+    transition: all ease .2s;
+}
+.readbtn:hover{
+    color: #ff6600;
+    scale: 1.3;
+}
+.deletebtn{
+    color: gray;
+    transition: all ease .2s;
+}
+.deletebtn:hover{
+    color: #ff6600;
+    scale: 1.3;
+}
+
+@media screen and (max-width: 1000px){
+    .story-title{
+        font-size: 2.2vw;
+    }
+    .story-time{
+        width: 11vw;
+    }
+    .story-by,.story-time,.story-link,.story-comments,.story-upvotes{
+        font-size: 1.8vw;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .story-info-container{
+        width: 78vw;
+    }
+    .story-title{
+        font-size: 3vw;
+    }
+    .story-time{
+        width: 13vw;
+    }
+    .story-by,.story-time,.story-link,.story-comments,.story-upvotes{
+        font-size: 2.3vw;
+    }
+    .story-info{
+        justify-content: space-between;
+        gap: 0;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .story-title{
+        font-size: 3.5vw;
+    }
+    .story-by,.story-time,.story-link,.story-comments,.story-upvotes{
+        font-size: 2.4vw;
+    }
+
+}
