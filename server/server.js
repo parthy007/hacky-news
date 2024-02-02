@@ -10,6 +10,7 @@ app.use(cors({
     origin:"*",
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'OPTIONS', 'ORIGIN'],
+    credentials:true,
 }))
 
 dotenv.config()
