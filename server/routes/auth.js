@@ -13,10 +13,13 @@ router.post("/register", async(req,res)=>{
 
     try{
         const user = await newUser.save();
-        res.setHeader('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, OPTIONS, ORIGIN');
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        setResponseHeaders(event, {
+            'Access-Control-Allow-Methods': 'GET,POST',
+            'Access-Control-Allow-Origin': 'https://hacky-news-sigma.vercel.app',
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Headers': '',
+            'Access-Control-Expose-Headers': '*',
+        });
         return res.status(201).json(user);
     }catch(err){
         return res.status(500).json(err);
@@ -47,10 +50,13 @@ router.post("/login", async(req,res)=>{
             secure: true
         });
 
-        res.setHeader('Access-Control-Allow-Origin', 'https://hacky-news-sigma.vercel.app');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, OPTIONS, ORIGIN');
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        setResponseHeaders(event, {
+            'Access-Control-Allow-Methods': 'GET,POST',
+            'Access-Control-Allow-Origin': 'https://hacky-news-sigma.vercel.app',
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Headers': '',
+            'Access-Control-Expose-Headers': '*',
+        });
         return res.status(200).json({...info});
     }catch(err){
         return res.status(501).json(err);
