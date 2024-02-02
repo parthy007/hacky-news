@@ -13,12 +13,6 @@ router.post("/register", async(req,res)=>{
 
     try{
         const user = await newUser.save();
-        const allowedOrigin = req.headers.origin || "https://hacky-news-sigma.vercel.app";
-
-        res.header('Access-Control-Allow-Origin', allowedOrigin);
-        res.header('Access-Control-Allow-Methods', 'GET, POST');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, OPTIONS, ORIGIN');
-        res.header('Access-Control-Allow-Credentials', 'true');
         return res.status(201).json(user);
     }catch(err){
         return res.status(500).json(err);
@@ -48,11 +42,6 @@ router.post("/login", async(req,res)=>{
             sameSite: 'none',
             secure: true
         });
-        const allowedOrigin = req.headers.origin || "https://hacky-news-sigma.vercel.app";
-        res.header('Access-Control-Allow-Origin', allowedOrigin);
-        res.header('Access-Control-Allow-Methods', 'GET, POST');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, OPTIONS, ORIGIN');
-        res.header('Access-Control-Allow-Credentials', 'true');
 
         return res.status(200).json({...info});
     }catch(err){
