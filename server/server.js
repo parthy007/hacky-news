@@ -6,7 +6,22 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors())
+const allowedOrigins = ['https://hacky-news-sigma.vercel.app', 'http://localhost:3000'];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST'],
+    credentials: true,
+  })
+);
+
 
 dotenv.config()
 
