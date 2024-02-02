@@ -22,7 +22,7 @@ export default function Login() {
                 {
                     headers:{
                         'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'https://hacky-news-sigma.vercel.app/',
+                        'Access-Control-Allow-Origin': 'https://hacky-news-sigma.vercel.app',
                     },
                     withCredentials: true,
                 }
