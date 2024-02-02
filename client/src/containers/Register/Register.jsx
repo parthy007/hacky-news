@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./Register.css"
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
+import rootUrl from "../../baseUrl"
 
 export default function Register() {
 
@@ -18,7 +19,7 @@ export default function Register() {
         }
     
         try {
-            const res = await axios.post("https://hacky-news-server.vercel.app/auth/register", {
+            const res = await axios.post(`${rootUrl}register`, {
                 username: username,
                 email: email,
                 password: password,

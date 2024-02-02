@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Login.css"
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import rootUrl from "../../baseUrl"
 
 export default function Login() {
 
@@ -18,7 +19,7 @@ export default function Login() {
 
         try {
             const res = await axios.post(
-                "https://hacky-news-server.vercel.app/auth/login",
+                `${rootUrl}login`,
                 {
                     email: email,
                     password: password,
