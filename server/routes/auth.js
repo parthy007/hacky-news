@@ -2,9 +2,9 @@ const router = require("express").Router();
 const User = require("../models/user");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
+const corsMiddleware = require("../middleWares/corsMiddleware")
 
-
-router.post("/register", async(req,res)=>{
+router.post("/register", corsMiddleware, async(req,res)=>{
     
     try{
         const newUser = new User({
@@ -20,7 +20,7 @@ router.post("/register", async(req,res)=>{
 });
 
 
-router.post("/login", async(req,res)=>{
+router.post("/login", corsMiddleware, async(req,res)=>{
     
     try{
         const user = await User.findOne({email: req.body.email});
