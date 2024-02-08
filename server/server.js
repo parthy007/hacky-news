@@ -13,14 +13,14 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json());
 
 app.use(cors({
-    origin: "https://hacky-news-sigma.vercel.app",
+    origin: ["http://localhost:3000"],
+    methods:["GET","POST"],
     allowedHeaders: ['Content-Type','OPTIONS','ORIGIN'],
     credentials:true
 }));
-app.options('*', cors())
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL_AICHATUSERS)
   .then(() => console.log('DB is connected'))
   .catch((err) => console.log(err));
 
