@@ -10,7 +10,7 @@ const app = express();
 dotenv.config();
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-app.use(express.json());
+
 
 app.use(cors({
     origin: ["http://localhost:3000"],
@@ -24,7 +24,7 @@ mongoose
   .then(() => console.log('DB is connected'))
   .catch((err) => console.log(err));
 
-
+app.use(express.json());
 app.use('/auth', authRoute);
 
 const PORT = process.env.PORT || 3001;
