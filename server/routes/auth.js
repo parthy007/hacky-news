@@ -6,17 +6,16 @@ const jwt = require("jsonwebtoken");
 
 router.post("/register", async(req,res)=>{
     
-    const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString()
-    })
-
     try{
+        const newUser = new User({
+            username: req.body.username,
+            email: req.body.email,
+            password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString()
+        })
         const user = await newUser.save();
-        return res.status(201).json(user);
+        res.status(201).json(user);
     }catch(err){
-        return res.status(500).json(err);
+        res.status(500).json({error: err.message});
     }
 });
 
@@ -26,7 +25,7 @@ router.post("/login", async(req,res)=>{
     try{
         const user = await User.findOne({email: req.body.email});
         if(!user){
-            return res.status(401).json("Wrong credentials");
+            res.status(401).json("Wrong credentials");
         }
         const bytes  = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
         const originalPassword = bytes.toString(CryptoJS.enc.Utf8);   
@@ -43,11 +42,11 @@ router.post("/login", async(req,res)=>{
             httpOnly: true,
             sameSite: 'none',
             secure: true
-        });
+        }); 
 
-        return res.status(200).json({...info});
+        res.status(200).json({...info});
     }catch(err){
-        return res.status(501).json(err);
+        res.status(501).json({error: err.message});
     }
 })
 
