@@ -13,7 +13,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000","https://hacky-news-two.vercel.app"],
     methods:["GET","POST"],
     allowedHeaders: ['Content-Type','OPTIONS','ORIGIN'],
     credentials:true
